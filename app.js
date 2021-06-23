@@ -1,9 +1,7 @@
 const express = require('express');
 const app = express();
-const apiRoute = require('./src/routes/api.route');
 const { connectDB } = require('./src/db/');
 const indexRoute = require('./src/routes/index.routes');
-
 
 const middleware = require('./src/middleware/middleware');
 
