@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/Pryanik1996/the_project#readme",
   "dependencies": {
+    "connect-mongo": "^4.4.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "hbs": "^4.1.2",
     "mongoose": "^5.12.14"
   }
