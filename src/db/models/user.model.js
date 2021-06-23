@@ -8,3 +8,4 @@ const User = model("User", {
 });
 
 module.exports = User;
+
