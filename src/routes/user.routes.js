@@ -17,7 +17,7 @@ router
       const newUser = await User.create({ name, email, password: hash });
       console.log('newUser =>', newUser);
       if (newUser) {
-        req.session.username = newUser.name;
+        req.session.userName = newUser.name;
         req.session.userId = newUser._id;
       }
       res.redirect('/');
