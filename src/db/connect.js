@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 const { mongoUrl, options } = require("./config");
 
@@ -11,5 +10,3 @@ function disconnect() {
 }
 
 module.exports = { connect, disconnect };
-
-
