@@ -1,88 +1,38 @@
-<div class="container">
-	<div class="accordion" id="accordionExample">
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="headingOne">
-				<button
-					class="accordion-button"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#collapseOne"
-					aria-expanded="true"
-					aria-controls="collapseOne"
-				>
-					Take stock in
-				</button>
-			</h2>
-			<div
-				id="collapseOne"
-				class="accordion-collapse collapse show"
-				aria-labelledby="headingOne"
-				data-bs-parent="#accordionExample"
-			>
-				<div class="accordion-body">
+<div class="container my-4">
+	<form method="POST" action="/shares">
+		<div class="mb-3">
+			<label for="nameShare" class="form-label">Name Share</label>
+			<input type="text" name="name" class="form-control" id="nameShare" />
+		</div>
+		<div class="mb-3">
+			<label for="priceShare" class="form-label">Price</label>
+			<input type="number" name="price" class="form-control" id="priceShare" />
+		</div>
+		<div class="mb-3">
+			<label for="quantityShare" class="form-label">Quantity</label>
+			<input type="number" name="quantity" class="form-control" id="quantityShare" />
+		</div>
+		<button type="submit" class="btn btn-primary">ADD</button>
+	</form>
+</div>
 
-				</div>
-			</div>
-		</div>
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="headingTwo">
-				<button
-					class="accordion-button collapsed"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#collapseTwo"
-					aria-expanded="false"
-					aria-controls="collapseTwo"
-				>
-					Accordion Item #2
-				</button>
-			</h2>
-			<div
-				id="collapseTwo"
-				class="accordion-collapse collapse"
-				aria-labelledby="headingTwo"
-				data-bs-parent="#accordionExample"
-			>
-				<div class="accordion-body">
-					<strong>This is the second item's accordion body.</strong>
-					It is hidden by default, until the collapse plugin adds the appropriate classes that we
-					use to style each element. These classes control the overall appearance, as well as the
-					showing and hiding via CSS transitions. You can modify any of this with custom CSS or
-					overriding our default variables. It's also worth noting that just about any HTML can go
-					within the
-					<code>.accordion-body</code>, though the transition does limit overflow.
-				</div>
-			</div>
-		</div>
-		<div class="accordion-item">
-			<h2 class="accordion-header" id="headingThree">
-				<button
-					class="accordion-button collapsed"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#collapseThree"
-					aria-expanded="false"
-					aria-controls="collapseThree"
-				>
-					Accordion Item #3
-				</button>
-			</h2>
-			<div
-				id="collapseThree"
-				class="accordion-collapse collapse"
-				aria-labelledby="headingThree"
-				data-bs-parent="#accordionExample"
-			>
-				<div class="accordion-body">
-					<strong>This is the third item's accordion body.</strong>
-					It is hidden by default, until the collapse plugin adds the appropriate classes that we
-					use to style each element. These classes control the overall appearance, as well as the
-					showing and hiding via CSS transitions. You can modify any of this with custom CSS or
-					overriding our default variables. It's also worth noting that just about any HTML can go
-					within the
-					<code>.accordion-body</code>, though the transition does limit overflow.
-				</div>
-			</div>
-		</div>
+<div class="container">
+	<div style="width: 20%;">
+
+		<ol class="list-group list-group-numbered">
+			{{#each shares}}
+				<li class="list-group-item d-flex justify-content-between align-items-start">
+					<div class="ms-2 me-auto">
+						<div class="fw-bold">{{this.name}}</div>
+						<p>Price - {{this.price}}$</p>
+					</div>
+					<span
+						class="badge bg-primary rounded-pill align-items-center"
+						style="color: white;"
+					>Quantity -
+						{{this.quantity}}</span>
+				</li>
+			{{/each}}
+		</ol>
 	</div>
 </div>

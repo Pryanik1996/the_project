@@ -48,22 +48,22 @@
   {{/if}}
 </nav> --}}
 <nav>
-  <div class="nav-wrapper teal accent-4">
-    <a href="/" class="brand-logo right">PROJECT</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      {{#if userName}}
-        <li><a href="/profile">{{userName}}</a></li>
-        <li><a href="/posts">Объявления</a></li>
-        <li><a href="/users/carts">Корзина</a></li>
-        <li><a href="/users/logout">Выйти</a></li>
-        {{#if userAdmin}}
-          <li><a href="/profile">ADMIN - {{userAdmin}}</a></li>
-          <li><a href="/votes/">Добавить объявление</a></li>
-        {{/if}}
-      {{else}}
-        <li><a href="/users/registration">Регистрация</a></li>
-        <li><a href="/users/login">Войти</a></li>
-      {{/if}}
-    </ul>
-  </div>
+	<div class="nav-wrapper teal accent-4">
+		<a href="/" class="brand-logo right">PROJECT</a>
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			{{#if userName}}
+				<li><a href="/profile">{{userName}}</a></li>
+				<li><a href="/posts">Объявления</a></li>
+				<li><a href="/users/carts">Корзина</a></li>
+				<li><a href="/users/logout">Выйти</a></li>
+				{{#if userAdmin}}
+					<li><a href="/shares">ADMIN - {{userAdmin}}</a></li>
+					<li><a href="/votes/">Добавить объявление</a></li>
+				{{/if}}
+			{{else}}
+				<li><a href="/users/registration">Регистрация</a></li>
+				<li><a href="/users/login">Войти</a></li>
+			{{/if}}
+		</ul>
+	</div>
 </nav>
