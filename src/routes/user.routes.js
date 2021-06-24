@@ -18,7 +18,6 @@ router
 				req.session.userName = findUser.name;
 				req.session.userId = findUser._id;
 				req.session.userAdmin = findUser.admin;
-				console.log("req.session ", req.session);
 				req.session.res.redirect("/");
 			}
 		} catch (error) {
@@ -39,7 +38,6 @@ router
 		try {
 			await User.updateMany({ $inc: { score: +1 } });
 			const newUser = await User.create({ name, email, password: hash });
-			console.log("newUser =>", newUser);
 			if (newUser) {
 				req.session.userName = newUser.name;
 				req.session.userId = newUser._id;
