@@ -18,7 +18,7 @@ router
 				req.session.userName = findUser.name;
 				req.session.userId = findUser._id;
 				req.session.userAdmin = findUser.admin;
-				req.session.res.redirect("/");
+				res.redirect("/");
 			}
 		} catch (error) {
 			console.log(error);
