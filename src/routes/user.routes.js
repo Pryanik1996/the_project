@@ -21,9 +21,9 @@ router
 				res.redirect("/");
 			}
 		} catch (error) {
-			console.log(error);
+			console.log("err login ", error);
+			res.redirect("/users/login");
 		}
-		res.redirect("/");
 	});
 
 router
@@ -36,7 +36,7 @@ router
 		console.log(req.body);
 		const hash = await bcrypt.hash(password, SALTROUND);
 		try {
-			await User.updateMany({ $inc: { score: +1 } });
+			await User.updateMany({ $inc: { money: +10 } });
 			const newUser = await User.create({ name, email, password: hash });
 			if (newUser) {
 				req.session.userName = newUser.name;
