@@ -11,12 +11,13 @@
 			</div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><a href="#">{{user.email}}</a></li>
-				<li class="list-group-item"><p class="card-text">Wallet - {{user.money}}$</p></li>
+				<li class="list-group-item"><p class="card-text" data-wallet>Wallet -
+						{{user.money}}$</p></li>
 			</ul>
 		</div>
 	</div>
 
-	<div class="container">
+	<div data-accord id="{{user._id}}" class="container">
 		<div class="accordion" id="accordionExample">
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="headingOne">
@@ -39,7 +40,21 @@
 				>
 					<div class="accordion-body">
 						<label for="customRange3" class="form-label">select quantity</label>
-						<input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3" />
+						<div><p>Price - {{allSaresInStock.price}}$</p></div>
+						<div><p data-quantity>Quantity - {{allSaresInStock.quantity}} pix</p></div>
+						<input
+							type="range"
+							class="form-range"
+							min="0"
+							max="{{allSaresInStock.quantity}}"
+							step="1"
+							id="customRange3"
+							oninput="this.nextElementSibling.value = this.value"
+						/>
+						<output id="buy"></output>
+						<div class="d-flex" style="justify-content:space-between">
+							<button id="buyBtn" class="btn btn-primary" type="submit">Buy</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -63,7 +78,22 @@
 					data-bs-parent="#accordionExample"
 				>
 					<div class="accordion-body">
-						tut
+						<label for="customRange3" class="form-label">select quantity</label>
+						<div><p data-yourshares>Your Shares - {{user.countShare}} pix</p></div>
+						<input
+							type="range"
+							class="form-range"
+							min="0"
+							max="{{user.countShare}}"
+							step="1"
+							value=""
+							id="customRange3"
+							oninput="this.nextElementSibling.value = this.value"
+						/>
+						<output id="sell"></output>
+						<div class="d-flex" style="justify-content:space-between">
+							<button id="sellBtn" class="btn btn-primary" type="submit">Sell</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -77,7 +107,7 @@
 						aria-expanded="false"
 						aria-controls="collapseThree"
 					>
-						Sell out Stock
+						Information
 					</button>
 				</h2>
 				<div
@@ -87,7 +117,16 @@
 					data-bs-parent="#accordionExample"
 				>
 					<div class="accordion-body">
-						tut
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam incidunt possimus
+						dignissimos quidem quae numquam soluta voluptas necessitatibus! Accusamus, repellendus
+						alias quisquam iste nemo earum minus aperiam dolore doloribus facilis, ducimus odio
+						mollitia exercitationem. Laboriosam nihil eaque adipisci, perspiciatis nemo nam nobis?
+						Ipsum in expedita, assumenda alias tenetur voluptas dolore veritatis provident, aliquid
+						impedit consectetur libero laudantium sequi illum! Sapiente repudiandae totam at
+						voluptatibus perspiciatis laudantium in provident praesentium perferendis magni error
+						nostrum explicabo nisi sequi, ipsum veniam dolor accusantium, blanditiis ut doloremque
+						quis expedita assumenda corrupti quia! Illum architecto blanditiis magnam pariatur
+						facilis provident quasi recusandae non distinctio eligendi.
 					</div>
 				</div>
 			</div>
@@ -96,7 +135,7 @@
 
 </div>
 
-<div class="container">
+<div data-progressbar class="container">
 	<div class="card my-2">
 		<h5 class="card-header">Share</h5>
 		<div class="card-body">
