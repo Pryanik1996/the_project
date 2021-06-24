@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+{{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
@@ -9,37 +9,61 @@
         <li class="nav-item">
           <a class="nav-link" href="/users/login">{{userName}}</a>
         </li>
+ 
         <li class="nav-item">
           <a class="nav-link" href="/users/logout">Выйти</a>
         </li>
 
+
   </div>
-  {{!-- {{#if role}} --}}
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-      <a class="nav-link" href="/users/seller">Добавить объявление</a>
-    </li>
-  </ul>
+  {{#if userAdmin}}
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+            <a class="nav-link" href="/users/login">Admin - {{userAdmin}}</a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/votes/">Добавить объявление</a>
+      </li>
+    </ul>
   {{/if}}
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/posts">Объявления</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/carts">Корзина</a>
+      </li>
+    </ul>
 
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-      <a class="nav-link" href="/users/category">Категории товаров</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/users/carts">Корзина</a>
-    </li>
-  </ul>
-
-  {{!-- {{else}} --}}
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item">
-      <a class="nav-link" href="/users/registration">Регистрация</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/users/login">Войти</a>
-    </li>
-  </ul>
+  {{else}}
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/users/registration">Регистрация</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/login">Войти</a>
+      </li>
+    </ul>
+    </div>
+  {{/if}}
+</nav> --}}
+<nav>
+  <div class="nav-wrapper teal accent-4">
+    <a href="/" class="brand-logo right">PROJECT</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      {{#if userName}}
+        <li><a href="/users/login">{{userName}}</a></li>
+        <li><a href="/posts">Объявления</a></li>
+        <li><a href="/users/carts">Корзина</a></li>
+        <li><a href="/users/logout">Выйти</a></li>
+        {{#if userAdmin}}
+          <li><a href="/users/login">ADMIN - {{userAdmin}}</a></li>
+          <li><a href="/votes/">Добавить объявление</a></li>
+        {{/if}}
+      {{else}}
+        <li><a href="/users/registration">Регистрация</a></li>
+        <li><a href="/users/login">Войти</a></li>
+      {{/if}}
+    </ul>
   </div>
-  {{!-- {{/if}} --}}
 </nav>

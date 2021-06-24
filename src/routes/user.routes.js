@@ -11,17 +11,21 @@ router
   })
   .post(async (req, res) => {
     const { email, password } = req.body;
+    console.log("REQ BODY====>", req.body);
     try {
       const findUser = await User.findOne({ email });
+      console.log("FIND USER", findUser);
       if (findUser && (await bcrypt.compare(password, findUser.password))) {
+        console.log("sdfghjklwertyuioxcvbnm");
         req.session.userName = findUser.name;
         req.session.userId = findUser._id;
+        req.session.userAdmin = findUser.admin;
         res.redirect("/");
       }
     } catch (error) {
       console.log(error);
+      res.redirect("/users/login");
     }
-    res.redirect("/users/login");
   });
 
 router
@@ -31,17 +35,19 @@ router
   })
   .post(async (req, res) => {
     const { name, email, password } = req.body;
+    console.log(req.body);
     const hash = await bcrypt.hash(password, SALTROUND);
     try {
+      await User.updateMany({ $inc: { score: +1 } });
       const newUser = await User.create({ name, email, password: hash });
-      console.log("newUser =>", newUser);
       if (newUser) {
         req.session.userName = newUser.name;
         req.session.userId = newUser._id;
+        req.session.userAdmin = newUser.admin;
       }
       res.redirect("/");
     } catch (error) {
-      console.log(error);
+      console.log("err", error);
       res.redirect("/users/registration");
     }
   });

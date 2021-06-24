@@ -1,0 +1,24 @@
+<div class="row my-2" id="postsContainer">
+
+	{{#if posts}}
+
+		{{#each posts}}
+			<div data-id="{{this._id}}" class="col-2 my-2">
+				<div class="card" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="..." />
+					<div class="card-body">
+						<h5 class="card-title">{{this.title}}</h5>
+						<p class="card-text">{{this.body}}</p>
+						<div>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	{{else}}
+		<div>Postov Net</div>
+	{{/if}}
+
+</div>
