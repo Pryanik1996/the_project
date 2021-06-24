@@ -1,0 +1,43 @@
+<div class="container">
+	<div style="padding: 2rem;">
+		<div class="card" style="width: 18rem;">
+			<img
+				src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png"
+				class="card-img-top"
+			/>
+			<div class="card-body">
+				<h5 class="card-title">{{user.name}}</h5>
+				<p class="card-text">ShareHolder Info</p>
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><a href="#">{{user.email}}</a></li>
+				<li class="list-group-item">A second item</li>
+			</ul>
+		</div>
+	</div>
+	<div class="card my-2">
+		<h5 class="card-header">Share</h5>
+		<div class="card-body">
+			<h5 class="card-title">tut tipo nazvannie akcii</h5>
+			<p class="card-text"> Your count of Shares - {{user.countShare}}</p>
+			<p class="card-text">Wallet - {{user.money}}$</p>
+		</div>
+
+		<div class="progress">
+			<div
+				class="progress-bar progress-bar-striped progress-bar-animated"
+				role="progressbar"
+				aria-valuenow="75"
+				aria-valuemin="0"
+				aria-valuemax="100"
+				style="width: {{percentShares}}%"
+			>{{percentShares}}%</div>
+		</div>
+	</div>
+
+	<div class="card-body">
+		<a href="/shares" class="card-link">buy shares</a>
+		<a href="#" class="card-link">sell shares</a>
+	</div>
+
+</div>
