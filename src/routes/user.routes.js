@@ -13,19 +13,20 @@ router
   .post(async (req, res) => {
     const { email, password } = req.body;
 
-    try {
-      const findUser = await User.findOne({ email });
-      if (findUser && (await bcrypt.compare(password, findUser.password))) {
-        req.session.userName = findUser.name;
-        req.session.userId = findUser._id;
-        req.session.userAdmin = findUser.admin;
-        res.redirect("/");
-      }
-    } catch (error) {
-      console.log("err login ", error);
-      res.redirect("/users/login");
-    }
-  });
+		try {
+			const findUser = await User.findOne({ email });
+			if (findUser && (await bcrypt.compare(password, findUser.password))) {
+				req.session.userName = findUser.name;
+				req.session.userId = findUser._id;
+        console.log(req.session.userId, 'SESSION')
+				req.session.userAdmin = findUser.admin;
+				res.redirect("/posts");
+			}
+		} catch (error) {
+			console.log("err login ", error);
+			res.redirect("/users/login");
+		}
+	});
 
 router
   .route("/registration")
@@ -53,7 +54,7 @@ router
         req.session.userId = newUser._id;
         req.session.userAdmin = newUser.admin;
       }
-      res.redirect("/");
+      res.redirect("/posts");
     } catch (error) {
       console.log("err", error);
       res.redirect("/users/registration");

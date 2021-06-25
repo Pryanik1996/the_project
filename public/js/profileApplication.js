@@ -1,5 +1,6 @@
 const $containerAccord = document.querySelector("[data-accord]");
 
+
 const fetchToAPI = async (method, body) =>
 	fetch(`/profile/share`, {
 		method,
