@@ -5,6 +5,8 @@ const hbs = require("hbs");
 const path = require("path");
 const { mongoUrl } = require("./src/db/config");
 const { connect } = require("./src/db/connect");
+const sessions = require('express-session')
+
 
 const indexRoute = require("./src/routes/index.routes");
 const userRoute = require("./src/routes/user.routes");
@@ -23,15 +25,30 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-	session({
-		secret: "81267891273897318973289jhkkjh",
-		resave: false,
-		saveUninitialized: false,
-		cookie: { secure: false },
-		store: MongoStore.create({ mongoUrl }),
-	}),
-);
+const sessionParser = sessions({
+  name: app.get('cookieName'),
+  secret: 'e1d322030d13b4d27cac8244491c65f4e86aab35819c8b922618b9ad0f6e846a49ee9199590abc1562b41f992543df897ea386b86666458e4ca6d9f73bdd5f9c',
+  resave: false, // Не сохранять сессию, если мы ее не изменим
+  saveUninitialized: false, // не сохранять пустую сессию
+  // store: new FileStore({ // выбираем в качестве хранилища файловую систему
+  //   secret: secretKey,
+  // }),
+  store: MongoStore.create({ // выбираем в качестве хранилища mongoDB
+    mongoUrl: 'mongodb://localhost:27017/AVITO',
+  }),
+  cookie: { // настройки, необходимые для корректного работы cookie
+    httpOnly: true, // не разрещаем модифицировать данную cookie через javascript
+    // maxAge: 100000000, // устанавливаем время жизни cookie
+
+  },
+});
+app.use(sessionParser);
+
+
+app.set('cookieName', 'userCookie') // Устанавливаем в настройках сервера специальную переменную
+
+
+
 
 app.use((req, res, next) => {
 	res.locals.userName = req.session.userName;

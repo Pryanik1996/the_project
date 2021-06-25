@@ -9,7 +9,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/users/login">{{userName}}</a>
         </li>
- 
+
         <li class="nav-item">
           <a class="nav-link" href="/users/logout">Выйти</a>
         </li>
@@ -17,33 +17,33 @@
 
   </div>
   {{#if userAdmin}}
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-            <a class="nav-link" href="/users/login">Admin - {{userAdmin}}</a>
-          </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/votes/">Добавить объявление</a>
-      </li>
-    </ul>
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link" href="/users/login">Admin - {{userAdmin}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/votes/">Добавить объявление</a>
+    </li>
+  </ul>
   {{/if}}
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/posts">Объявления</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/carts">Корзина</a>
-      </li>
-    </ul>
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link" href="/posts">Объявления</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users/carts">Корзина</a>
+    </li>
+  </ul>
 
   {{else}}
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="/users/registration">Регистрация</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/login">Войти</a>
-      </li>
-    </ul>
-    </div>
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link" href="/users/registration">Регистрация</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/users/login">Войти</a>
+    </li>
+  </ul>
+  </div>
   {{/if}}
 </nav>

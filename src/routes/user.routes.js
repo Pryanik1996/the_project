@@ -22,8 +22,8 @@ router
 			}
 		} catch (error) {
 			console.log(error);
+      res.redirect("/users/login");
 		}
-		res.redirect("/");
 	});
 
 router
