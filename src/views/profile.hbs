@@ -7,12 +7,12 @@
 			/>
 			<div class="card-body">
 				<h5 class="card-title">{{user.name}}</h5>
-				<p class="card-text">ShareHolder Info</p>
+				<p class="card-text">Информация пользователя</p>
 			</div>
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><a href="#">{{user.email}}</a></li>
-				<li class="list-group-item"><p class="card-text" data-wallet>Wallet -
-						{{user.money}}$</p></li>
+				<li class="list-group-item"><p class="card-text" data-wallet>Баланс -
+						{{user.money}}₽</p></li>
 			</ul>
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 						aria-expanded="true"
 						aria-controls="collapseOne"
 					>
-						Take stock
+						Покупка
 					</button>
 				</h2>
 				<div
@@ -40,9 +40,9 @@
 					data-bs-parent="#accordionExample"
 				>
 					<div class="accordion-body">
-						<label for="customRange3" class="form-label">select quantity</label>
-						<div><p>Price - {{allSaresInStock.price}}$</p></div>
-						<div><p data-quantity>Quantity - {{allSaresInStock.quantity}} pix</p></div>
+						<label for="customRange3" class="form-label">Выберите количество</label>
+						<div><p>Цена - {{allSaresInStock.price}}₽</p></div>
+						<div><p data-quantity>Количество акций - {{allSaresInStock.quantity}} шт.</p></div>
 						<input
 							type="range"
 							class="form-range"
@@ -54,7 +54,7 @@
 						/>
 						<output id="buy"></output>
 						<div class="d-flex" style="justify-content:space-between">
-							<button id="buyBtn" class="btn btn-primary" type="submit">Buy</button>
+							<button id="buyBtn" class="btn btn-primary" type="submit">Купить</button>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 						aria-expanded="false"
 						aria-controls="collapseTwo"
 					>
-						Sell stock
+						Продажа
 					</button>
 				</h2>
 				<div
@@ -80,8 +80,8 @@
 					data-bs-parent="#accordionExample"
 				>
 					<div class="accordion-body">
-						<label for="customRange3" class="form-label">select quantity</label>
-						<div><p data-yourshares>Your Shares - {{user.countShare}} pix</p></div>
+						<label for="customRange3" class="form-label">Выберите количество</label>
+						<div><p data-yourshares>Количество акций - {{user.countShare}} шт.</p></div>
 						<input
 							type="range"
 							class="form-range"
@@ -94,7 +94,7 @@
 						/>
 						<output id="sell"></output>
 						<div class="d-flex" style="justify-content:space-between">
-							<button id="sellBtn" class="btn btn-primary" type="submit">Sell</button>
+							<button id="sellBtn" class="btn btn-primary" type="submit">Продать</button>
 						</div>
 					</div>
 				</div>
@@ -109,7 +109,7 @@
 						aria-expanded="false"
 						aria-controls="collapseThree"
 					>
-						Information
+						Прочее
 					</button>
 				</h2>
 				<div
@@ -139,10 +139,10 @@
 
 <div data-progressbar class="container">
 	<div class="card my-2">
-		<h5 class="card-header">Share</h5>
+		<h5 class="card-header">Акция</h5>
 		<div class="card-body">
-			<h5 class="card-title">tut tipo nazvannie akcii</h5>
-			<p class="card-text"> Your count of Shares - {{user.countShare}}</p>
+			<h5 class="card-title">Название</h5>
+			<p class="card-text"> Количество акций - {{user.countShare}}</p>
 
 		</div>
 
