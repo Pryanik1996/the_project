@@ -1,5 +1,5 @@
 <div data-postsContainer>
-  <div class="row my-2">
+  <div data-form class="row my-2">
     {{#if posts}}
     {{#each posts}}
     <div data-id="{{this._id}}" class="col-2 my-2">
@@ -14,6 +14,8 @@
             <button data-dislike='1' class="btn btn-primary" name="dislike">Dislike</button>
             <h6 data-disLikeCount>{{this.dislikes.length}}</h6>
             <a href="/posts/edit/{{this._id}}" class="btn btn-danger edit">Edit</a>
+            <button class="btn btn-primary" data-deleteBut>Delete</button>
+
           </div>
         </div>
       </div>

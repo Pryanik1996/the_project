@@ -1,8 +1,7 @@
 const $buttonPost = document.querySelector("[data-postsContainer]");
-// console.log($buttonPost);
-const $postform = document.forms.postformM
-const $post = document.getElementById('formPost')
-console.log($post)
+
+
+const $postform = document.querySelector("[data-form]");
 
 
 $buttonPost?.addEventListener("click", async (event) => {
@@ -22,16 +21,32 @@ $buttonPost?.addEventListener("click", async (event) => {
         dislike: Boolean(dislike),
       }),
     });
-    const newLike = await response.json()
-    console.log(newLike, '88')
-    const $button = $parentDiv.querySelector('[data-likeCount]')
-    const $disLikeCount = $parentDiv.querySelector('[data-disLikeCount')
-    if($button) {
-      $button.innerText = `${newLike.likes.length}`
-      $disLikeCount .innerText = `${newLike.dislikes.length}`
+    const newLike = await response.json();
+    // console.log(newLike, "88");
+    const $button = $parentDiv.querySelector("[data-likeCount]");
+    const $disLikeCount = $parentDiv.querySelector("[data-disLikeCount");
+    if ($button) {
+      $button.innerText = `${newLike.likes.length}`;
+      $disLikeCount.innerText = `${newLike.dislikes.length}`;
     } else {
-      $disLikeCount .innerText = `${newLike.dislikes.length}`
-      $button.innerText = `${newLike.likes.length}`
+      $disLikeCount.innerText = `${newLike.dislikes.length}`;
+      $button.innerText = `${newLike.likes.length}`;
     }
   }
+});
+
+$postform?.addEventListener("click", async (event) => {
+  const dataId = event.target.closest('[data-id]')
+const postId = dataId.dataset.id
+  const clickBut = event.target
+  const buttonDel = clickBut.querySelector('[data-deleteBut]')
+  if(event.target.hasAttribute('data-deleteBut')) {
+    const response = await fetch(`/posts/edit/${postId}`, {
+      method: 'DELETE',
+    }) 
+    if(response.status === 200) dataId.remove()
+  }
+  
+  console.log(buttonDel)
+
 });
