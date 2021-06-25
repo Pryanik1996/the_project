@@ -4,10 +4,10 @@
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       {{#if userName}}
         <li><a style="text-decoration: none; font-size: 25px; letter-spacing: 1px;" href="/profile">{{userName}}</a></li>
+        <li><a style="text-decoration: none;" href="/">Главная</a></li>
         {{#if userAdmin}}
           <li><a style="text-decoration: none;" href="/votes/">Добавить объявление</a></li>
         {{/if}}
-        <li><a style="text-decoration: none;" href="/">Главная</a></li>
         <li><a style="text-decoration: none;" href="/users/logout">Выйти</a></li>
       {{else}}
         <li><a style="text-decoration: none;" href="/users/registration">Регистрация</a></li>

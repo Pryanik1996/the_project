@@ -1,28 +1,34 @@
-<div class="container">
-	<form method="post" action="/votes">
-		<label for="title-input" class="block mar-b-1">Title:</label>
-		<input
-			id="title-input"
-			name="title"
-			type="text"
-			value="{{entry.title}}"
-			tabindex="1"
-			class="block w-100 no-outline no-border pad-1 mar-b-2"
-		/>
+<div class="container" style="width: 700px; margin-top: 30px ;">
+  <form method="post" action="/votes">
+    <input
+      id="title-input"
+      name="title"
+      type="text"
+      value="{{entry.title}}"
+      tabindex="1"
+      class="block w-100 no-outline no-border pad-1 mar-b-2"
+      placeholder="Название"
+    />
+    <input
+      id="title-input"
+      name="picture"
+      type="text"
+      value="{{entry.picture}}"
+      tabindex="1"
+      class="block w-100 no-outline no-border pad-1 mar-b-2"
+      placeholder="Картинка"
+    />
+    <textarea
+      id="body-textarea"
+      name="body"
+      tabindex="2"
+      class="block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2"
+      placeholder="Описание"
+      style="height: 350px; resize: none; margin-top:10px"
+    ></textarea>
 
-		<label for="body-textarea" class="block mar-b-1">Body:</label>
-		<textarea
-			id="body-textarea"
-			name="body"
-			tabindex="2"
-			class="block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2"
-		></textarea>
-
-		<input
-			type="submit"
-			value="Publish"
-			tabindex="3"
-			class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline"
-		/>
-	</form>
+    <div class="text-center mt-5" style="margin-top: 15px;">
+      <button type="submit" class="btn btn-dark">&nbsp; Опубликовать &nbsp;</button>
+    </div>
+  </form>
 </div>

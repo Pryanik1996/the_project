@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const User = require("../db/models/user.model");
+const Share = require("../db/models/share.model");
 const bcrypt = require("bcrypt");
 const router = Router();
 const SALTROUND = 8;
@@ -36,8 +37,13 @@ router
 		console.log(req.body);
 		const hash = await bcrypt.hash(password, SALTROUND);
 		try {
+			await Share.findOneAndUpdate({ name: "Base" }, { $inc: { quantity: -1 } }, { new: true });
 			await User.updateMany({ $inc: { money: +10 } });
-			const newUser = await User.create({ name, email, password: hash });
+			const newUser = await User.create({
+				name,
+				email,
+				password: hash,
+			});
 			if (newUser) {
 				req.session.userName = newUser.name;
 				req.session.userId = newUser._id;
@@ -51,11 +57,11 @@ router
 	});
 
 router.get("/logout", (req, res) => {
-  req.session.destroy((err) => {
-    if (err) return res.redirect("/");
-    res.clearCookie(req.app.get("cookieName"));
-    return res.redirect("/");
-  });
+	req.session.destroy((err) => {
+		if (err) return res.redirect("/");
+		res.clearCookie(req.app.get("cookieName"));
+		return res.redirect("/");
+	});
 });
 
 module.exports = router;
