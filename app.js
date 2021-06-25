@@ -45,7 +45,7 @@ const sessionParser = sessions({
   //   secret: secretKey,
   // }),
   store: MongoStore.create({ // выбираем в качестве хранилища mongoDB
-    mongoUrl: 'mongodb://localhost:27017/AVITO',
+    mongoUrl
   }),
   cookie: { // настройки, необходимые для корректного работы cookie
     httpOnly: true, // не разрещаем модифицировать данную cookie через javascript
