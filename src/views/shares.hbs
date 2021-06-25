@@ -1,0 +1,38 @@
+<div class="container my-4">
+	<form method="POST" action="/shares">
+		<div class="mb-3">
+			<label for="nameShare" class="form-label">Name Share</label>
+			<input type="text" name="name" class="form-control" id="nameShare" />
+		</div>
+		<div class="mb-3">
+			<label for="priceShare" class="form-label">Price</label>
+			<input type="number" name="price" class="form-control" id="priceShare" />
+		</div>
+		<div class="mb-3">
+			<label for="quantityShare" class="form-label">Quantity</label>
+			<input type="number" name="quantity" class="form-control" id="quantityShare" />
+		</div>
+		<button type="submit" class="btn btn-primary">ADD</button>
+	</form>
+</div>
+
+<div class="container">
+	<div style="width: 20%;">
+
+		<ol class="list-group list-group-numbered">
+			{{#each shares}}
+				<li class="list-group-item d-flex justify-content-between align-items-start">
+					<div class="ms-2 me-auto">
+						<div class="fw-bold">{{this.name}}</div>
+						<p>Price - {{this.price}}$</p>
+					</div>
+					<span
+						class="badge bg-primary rounded-pill align-items-center"
+						style="color: white;"
+					>Quantity -
+						{{this.quantity}}</span>
+				</li>
+			{{/each}}
+		</ol>
+	</div>
+</div>

@@ -12,6 +12,8 @@ const indexRoute = require("./src/routes/index.routes");
 const userRoute = require("./src/routes/user.routes");
 const postRouter = require("./src/routes/posts.routes");
 const voteRouter = require("./src/routes/vote.routes");
+const profileRouter = require("./src/routes/profile.routes");
+const shareRouter = require("./src/routes/shares.routes");
 
 const app = express();
 
@@ -61,6 +63,8 @@ app.use("/", indexRoute);
 app.use("/users", userRoute);
 app.use("/posts", postRouter);
 app.use("/votes", voteRouter);
+app.use("/profile", profileRouter);
+app.use("/shares", shareRouter);
 
 app.listen(PORT, () => {
 	console.log("Server started!!!");
