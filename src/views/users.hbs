@@ -1,0 +1,16 @@
+<div class="container" style="width: 700px">
+  <table class="table table-bordered table-light" style="margin-top: 50px">
+    <tr style="font-weight: bold">
+      <td>Имя пользователя</td>
+      <td>Акции</td>
+      <td>Баланс</td>
+    </tr>
+    {{#each allUsers}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.this.countShare}}</td>
+      <td>{{this.money}}₽</td>
+    </tr>
+    {{/each}}
+  </table>
+  </div>

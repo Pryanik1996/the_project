@@ -1,0 +1,96 @@
+<div class="container" style="width: 700px; margin-top: 30px ;">
+  <form method="post" action="/votes">
+    <input
+      id="title-input"
+      name="title"
+      type="text"
+      value="{{entry.title}}"
+      tabindex="1"
+      class="block w-100 no-outline no-border pad-1 mar-b-2"
+      placeholder="Название"
+    />
+    <input
+      id="title-input"
+      name="picture"
+      type="text"
+      value="{{entry.picture}}"
+      tabindex="1"
+      class="block w-100 no-outline no-border pad-1 mar-b-2"
+      placeholder="Картинка"
+    />
+    <textarea
+      id="body-textarea"
+      name="body"
+      tabindex="2"
+      class="block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2"
+      placeholder="Описание"
+      style="height: 350px; resize: none; margin-top:10px"
+    ></textarea>
+
+    <div class="text-center mt-5" style="margin-top: 15px;">
+      <button type="submit" class="btn btn-dark">&nbsp; Опубликовать &nbsp;</button>
+    </div>
+  </form>
+</div>
+{{!-- <div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <!-- Form -->
+      <form method="post" action="/votes">
+        <div class="form-group">
+          <input type="text" name="picture" class="form-control" placeholder="picture" value="{{entry.picture}}" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" placeholder="title"	value="{{entry.title}}" required>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" name="body" rows="3" placeholder="description"></textarea>
+        </div>
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-secondary">add item</button>
+        </div>
+      </form>
+      <hr /> --}}
+
+
+
+
+
+{{!-- 
+
+<div class="container">
+	<form method="post" action="/votes">
+		<label for="title-input" class="block mar-b-1">Title:</label>
+    <input
+			id="picture-input"
+			name="picture"
+			type="text"
+			value="{{entry.picture}}"
+			tabindex="1"
+			class="block w-100 no-outline no-border pad-1 mar-b-2"
+		/>
+		<input
+			id="title-input"
+			name="title"
+			type="text"
+			value="{{entry.title}}"
+			tabindex="1"
+			class="block w-100 no-outline no-border pad-1 mar-b-2"
+		/>
+
+		<label for="body-textarea" class="block mar-b-1">Body:</label>
+		<textarea
+			id="body-textarea"
+			name="body"
+			tabindex="2"
+			class="block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2"
+		></textarea>
+
+		<input
+			type="submit"
+			value="Publish"
+			tabindex="3"
+			class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline"
+		/>
+	</form>
+</div> --}}
