@@ -20,6 +20,15 @@ const app = express();
 const PORT = 3000;
 
 hbs.registerPartials(path.join(process.env.PWD, "src", "views", "partials"));
+hbs.registerHelper('addEditDelete', (owner, idUser) => {
+  if(String(owner) === userId) {
+    return new hbs.SafeString(`
+    <a href="/posts/edit/{{this._id}}" class="btn btn-danger edit">Edit</a>
+    <button class="btn btn-danger delete">Delete</button>
+    `)
+  }
+}) 
+
 
 app.set("views", path.join(__dirname, "src", "views"));
 app.set("view engine", "hbs");
@@ -56,6 +65,8 @@ app.use((req, res, next) => {
 	res.locals.userName = req.session.userName;
 	res.locals.userId = req.session.userId;
 	res.locals.userAdmin = req.session.userAdmin;
+  console.log(res.locals.userId )
+  console.log(	res.locals.userAdmin)
 	next();
 });
 

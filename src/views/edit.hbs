@@ -1,0 +1,22 @@
+<div  id="formPost" class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-10 col-md-8 col-lg-6">
+      <form  method="post" data-id="{{id}}" name="postformM" action="/posts/edit/{{id}}">
+
+        <div>
+          <div class="form-group">
+            <input type="text" name="picture" class="form-control" placeholder="picture" value="{{entry.picture}}"
+              required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="title" class="form-control" placeholder="title" value="{{entry.title}}" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="body" rows="3" placeholder="description"></textarea>
+          </div>
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-secondary">add item</button>
+          </div>
+        </div>
+      </form>
+      <hr />

@@ -18,12 +18,13 @@ router
 			if (findUser && (await bcrypt.compare(password, findUser.password))) {
 				req.session.userName = findUser.name;
 				req.session.userId = findUser._id;
+        console.log(req.session.userId, 'SESSION')
 				req.session.userAdmin = findUser.admin;
 				res.redirect("/");
 			}
 		} catch (error) {
-			console.log(error);
-      res.redirect("/users/login");
+			console.log("err login ", error);
+			res.redirect("/users/login");
 		}
 	});
 

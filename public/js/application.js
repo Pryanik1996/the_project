@@ -1,5 +1,8 @@
 const $buttonPost = document.querySelector("[data-postsContainer]");
-console.log($buttonPost);
+// console.log($buttonPost);
+const $postform = document.forms.postformM
+const $post = document.getElementById('formPost')
+console.log($post)
 
 
 $buttonPost?.addEventListener("click", async (event) => {
@@ -20,6 +23,7 @@ $buttonPost?.addEventListener("click", async (event) => {
       }),
     });
     const newLike = await response.json()
+    console.log(newLike, '88')
     const $button = $parentDiv.querySelector('[data-likeCount]')
     const $disLikeCount = $parentDiv.querySelector('[data-disLikeCount')
     if($button) {
