@@ -64,4 +64,11 @@ router.get("/logout", (req, res) => {
 	});
 });
 
+router
+	.route("/usersList")
+	.get(async (req, res) => {
+		const users = await User.find();
+	})
+	.post();
+
 module.exports = router;
