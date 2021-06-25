@@ -2,18 +2,22 @@ const { Router } = require("express");
 const router = Router();
 const Post = require("../db/models/posts.model");
 
+const adminAccess = (req, res, next) => {
+	if (res.locals.userAdmin) {
+		next();
+	} else {
+		res.redirect("/");
+	}
+};
+
 router
 	.route("/")
-	.get((req, res) => {
-		if (res.locals.userAdmin) {
-			res.render("votes");
-		}
+	.get(adminAccess, (req, res) => {
+		res.render("votes");
 	})
-	.post(async (req, res) => {
+	.post(adminAccess, async (req, res) => {
 		try {
-			if (res.locals.userAdmin) {
-				await Post.create(req.body);
-			}
+			await Post.create(req.body);
 			res.redirect("/votes");
 		} catch (error) {
 			console.log(err);
