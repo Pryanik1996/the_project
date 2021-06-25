@@ -19,6 +19,8 @@ $containerAccord.addEventListener("click", async (e) => {
 	const $progressBar = document.querySelector("[data-progressbar]");
 	const $quantity = document.querySelector("[data-quantity]");
 	const $yourShare = document.querySelector("[data-yourshares]");
+	const $containerBuy = document.querySelector("[data-accordbuy]");
+	const $containerSell = document.querySelector("[data-accordsell]");
 
 	if (e.target === $buyBtn) {
 		let reqData = {};
@@ -33,7 +35,8 @@ $containerAccord.addEventListener("click", async (e) => {
 
 			$wallet.innerText = `Wallet - ${response.user.money}$`;
 			$progressBar.innerHTML = updateProgressBar(response.user, response.percentShares);
-			$quantity.innerText = `Quantity - ${response.share.quantity} pix`;
+			$containerBuy.innerHTML = updateAccordBuy(response.share);
+			$containerSell.innerHTML = updateAccordSell(response.user);
 			$yourShare.innerText = `Your Shares - ${response.user.countShare} pix`;
 		}
 	}
@@ -51,7 +54,8 @@ $containerAccord.addEventListener("click", async (e) => {
 			$wallet.innerText = `Wallet - ${response.user.money}$`;
 			$progressBar.innerHTML = updateProgressBar(response.user, response.percentShares);
 			$quantity.innerText = `Quantity - ${response.share.quantity} pix`;
-			$yourShare.innerText = `Your Shares - ${response.user.countShare} pix`;
+			$containerSell.innerHTML = updateAccordSell(response.user);
+			$containerBuy.innerHTML = updateAccordBuy(response.share);
 		}
 	}
 });
@@ -77,4 +81,45 @@ const updateProgressBar = (user, percentShares) => `
   </div>
 </div>
 
+`;
+
+const updateAccordBuy = (share) => `
+<div class="accordion-body">
+  <label for="customRange3" class="form-label">select quantity</label>
+  <div><p>Price - ${share.price}$</p></div>
+  <div><p data-quantity>Quantity - ${share.quantity} pix</p></div>
+    <input
+      type="range"
+      class="form-range"
+      min="0"
+      max="${share.quantity}"
+      step="1"
+      id="customRange3"
+      oninput="this.nextElementSibling.value = this.value"
+    />
+<output id="buy"></output>
+<div class="d-flex" style="justify-content:space-between">
+  <button id="buyBtn" class="btn btn-primary" type="submit">Buy</button>
+</div>
+`;
+
+const updateAccordSell = (user) => `
+<div class="accordion-body">
+<label for="customRange3" class="form-label">select quantity</label>
+<div><p data-yourshares>Your Shares - ${user.countShare} pix</p></div>
+  <input
+    type="range"
+    class="form-range"
+    min="0"
+    max="${user.countShare}"
+    step="1"
+    value=""
+    id="customRange3"
+    oninput="this.nextElementSibling.value = this.value"
+  />
+<output id="sell"></output>
+<div class="d-flex" style="justify-content:space-between">
+  <button id="sellBtn" class="btn btn-primary" type="submit">Sell</button>
+</div>
+</div>
 `;

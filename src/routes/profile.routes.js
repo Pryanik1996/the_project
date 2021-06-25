@@ -66,7 +66,6 @@ router
 			const allShares = users.reduce((acc, el) => acc + el.countShare, 0);
 			const percentShares = Math.round((user.countShare * 100) / allShares);
 			res.json({ user, share, percentShares });
-			// res.sendStatus(200);
 		} catch (err) {
 			console.log("catch ==> ", err);
 			res.sendStatus(500);
